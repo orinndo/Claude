@@ -1,23 +1,462 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>冠動脈造影CT検査 - 英語音声ガイド</title>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container { max-width:800px; margin:0 auto; }
-    </style>
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .header {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .header h1 {
+        color: #667eea;
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .header p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .phrase-card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        margin-bottom: 15px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .phrase-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .phrase-number {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .phrase-title {
+        color: #333;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #764ba2;
+    }
+
+    .english-text {
+        background: #f8f9ff;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border-left: 4px solid #667eea;
+    }
+
+    .english-text p {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 5px;
+    }
+
+    .english-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    .japanese-text {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    .play-button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background 0.3s;
+    }
+
+    .play-button:hover {
+        background: #5568d3;
+    }
+
+    .play-button:active {
+        background: #4757b8;
+    }
+
+    .play-button.playing {
+        background: #48bb78;
+    }
+
+    .play-button.playing:hover {
+        background: #38a169;
+    }
+
+    .play-icon {
+        width: 0;
+        height: 0;
+        border-left: 10px solid white;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+    }
+
+    .pause-icon {
+        width: 12px;
+        height: 12px;
+        display: flex;
+        gap: 3px;
+    }
+
+    .pause-icon::before,
+    .pause-icon::after {
+        content: '';
+        width: 3px;
+        height: 12px;
+        background: white;
+    }
+
+    .note-section {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .note-section h3 {
+        color: #856404;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .note-section ul {
+        color: #856404;
+        font-size: 14px;
+        line-height: 1.8;
+        padding-left: 20px;
+    }
+
+    .footer {
+        text-align: center;
+        color: white;
+        margin-top: 30px;
+        font-size: 12px;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+        }
+
+        .phrase-card {
+            padding: 15px;
+        }
+
+        .english-text p {
+            font-size: 15px;
+        }
+    }
+</style>
+
 </head>
 <body>
-<div class="container">
-<h1>Claude original English voice guide (structure/content preserved)</h1>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 冠動脈造影CT検査 英語音声ガイド</h1>
+            <p>Coronary CT Angiography - English Guide for Patients</p>
+        </div>
+
+    <!-- Phrase 1 -->
+    <div class="phrase-card" data-audio="phrase1">
+        <span class="phrase-number">1</span>
+        <div class="phrase-title">造影剤使用の説明</div>
+        <div class="english-text">
+            <p>Now, I'm going to use a contrast agent for this examination.</p>
+            <p>This is a special dye that helps us see your blood vessels more clearly on the images.</p>
+        </div>
+        <div class="japanese-text">
+            これから検査のために造影剤を使用します。<br>
+            これは特殊な薬剤で、血管を画像上でより鮮明に見えるようにするためのものです。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase1')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Phrase 2 -->
+    <div class="phrase-card" data-audio="phrase2">
+        <span class="phrase-number">2</span>
+        <div class="phrase-title">チューブ接続の説明</div>
+        <div class="english-text">
+            <p>I'm going to connect this tube to your IV line now.</p>
+            <p>The contrast agent will be injected through this tube during the scan.</p>
+        </div>
+        <div class="japanese-text">
+            これからこのチューブを点滴ラインに接続します。<br>
+            検査中、このチューブを通して造影剤が注入されます。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase2')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Phrase 3 -->
+    <div class="phrase-card" data-audio="phrase3">
+        <span class="phrase-number">3</span>
+        <div class="phrase-title">注入時の感覚について</div>
+        <div class="english-text">
+            <p>When the contrast is injected, you may feel a warm sensation spreading through your body.</p>
+            <p>Some patients also experience a metallic taste in their mouth or feel like they need to urinate.</p>
+            <p>These sensations are completely normal and will pass quickly.</p>
+        </div>
+        <div class="japanese-text">
+            造影剤が注入されると、体全体に温かい感覚が広がるのを感じるかもしれません。<br>
+            また、口の中に金属のような味を感じたり、尿意を感じる患者様もいらっしゃいます。<br>
+            これらの感覚は完全に正常で、すぐに治まります。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase3')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Phrase 4 -->
+    <div class="phrase-card" data-audio="phrase4">
+        <span class="phrase-number">4</span>
+        <div class="phrase-title">異常時の対応依頼</div>
+        <div class="english-text">
+            <p>If you experience any unusual symptoms such as difficulty breathing, severe pain, itching, or nausea, please let me know immediately.</p>
+            <p>I'll be monitoring you throughout the procedure, so don't hesitate to speak up.</p>
+        </div>
+        <div class="japanese-text">
+            もし呼吸困難、強い痛み、かゆみ、吐き気など、何か異常な症状を感じた場合は、すぐにお知らせください。<br>
+            検査中ずっと私が見守っていますので、遠慮なくお声がけください。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase4')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Phrase 5 -->
+    <div class="phrase-card" data-audio="phrase5">
+        <span class="phrase-number">5</span>
+        <div class="phrase-title">検査中の体勢について</div>
+        <div class="english-text">
+            <p>During the scan, it's very important that you remain completely still.</p>
+            <p>Please try not to move your body, and breathe normally unless I give you specific breathing instructions.</p>
+            <p>The examination will take only a few minutes.</p>
+        </div>
+        <div class="japanese-text">
+            検査中は、完全に動かないでいることがとても重要です。<br>
+            体を動かさないようにしてください。また、私が特別な呼吸の指示をしない限り、普通に呼吸してください。<br>
+            検査は数分で終わります。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase5')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Phrase 6 -->
+    <div class="phrase-card" data-audio="phrase6">
+        <span class="phrase-number">6</span>
+        <div class="phrase-title">全体の確認</div>
+        <div class="english-text">
+            <p>Do you have any questions before we begin?</p>
+            <p>If everything is clear, we'll start the examination now.</p>
+        </div>
+        <div class="japanese-text">
+            始める前に何かご質問はありますか?<br>
+            すべてご理解いただけましたら、これから検査を開始します。
+        </div>
+        <button class="play-button" onclick="playAudio(this, 'phrase6')">
+            <span class="play-icon"></span>
+            <span>音声を再生</span>
+        </button>
+    </div>
+
+    <!-- Note Section -->
+    <div class="note-section">
+        <h3>📝 使用上の注意</h3>
+        <ul>
+            <li>各フレーズカードをタップして音声を再生できます(音声ファイル追加後)</li>
+            <li>患者様の理解度に応じて、必要なフレーズのみ使用してください</li>
+            <li>緊急時はフレーズ4を優先的に使用してください</li>
+            <li>このガイドは補助ツールです。患者様の状態を常に観察してください</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Radiological Technologist Support Tool</p>
+        <p>© 2024 Medical English Voice Guide</p>
+    </div>
 </div>
+
+<script>
+    // 音声再生機能(音声ファイルが追加されたら有効化)
+    function playAudio(button, phraseId) {
+        // 音声ファイルのパスを設定(後から追加する想定)
+        const audioPath = `audio/${phraseId}.mp3`;
+
+        // 既存の音声を停止
+        const allAudios = document.querySelectorAll('audio');
+        allAudios.forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+
+        // すべてのボタンを初期状態に戻す
+        const allButtons = document.querySelectorAll('.play-button');
+        allButtons.forEach(btn => {
+            btn.classList.remove('playing');
+            btn.innerHTML = '<span class="play-icon"></span><span>音声を再生</span>';
+        });
+
+        // 音声ファイルの存在確認と再生
+        // 実際の音声ファイルが存在しない場合のフォールバック
+        try {
+            let audio = document.getElementById(`audio-${phraseId}`);
+
+            if (!audio) {
+                audio = new Audio(audioPath);
+                audio.id = `audio-${phraseId}`;
+
+                audio.onerror = function() {
+                    console.log(`音声ファイル ${phraseId} はまだ追加されていません`);
+                    showMessage('音声ファイルは後から追加されます');
+                };
+
+                audio.onended = function() {
+                    button.classList.remove('playing');
+                    button.innerHTML = '<span class="play-icon"></span><span>音声を再生</span>';
+                };
+            }
+
+            if (button.classList.contains('playing')) {
+                audio.pause();
+                audio.currentTime = 0;
+                button.classList.remove('playing');
+                button.innerHTML = '<span class="play-icon"></span><span>音声を再生</span>';
+            } else {
+                audio.play().then(() => {
+                    button.classList.add('playing');
+                    button.innerHTML = '<div class="pause-icon"></div><span>停止</span>';
+                }).catch(error => {
+                    console.log('音声再生エラー:', error);
+                    showMessage('音声ファイルは後から追加されます');
+                });
+            }
+        } catch (error) {
+            console.log('音声処理エラー:', error);
+            showMessage('音声ファイルは後から追加されます');
+        }
+    }
+
+    // メッセージ表示関数
+    function showMessage(message) {
+        const existingMsg = document.querySelector('.temp-message');
+        if (existingMsg) {
+            existingMsg.remove();
+        }
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'temp-message';
+        msgDiv.textContent = message;
+        msgDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 1000;
+            animation: fadeInOut 2s ease-in-out;
+        `;
+
+        document.body.appendChild(msgDiv);
+
+        setTimeout(() => {
+            msgDiv.remove();
+        }, 2000);
+    }
+
+    // アニメーション用CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // ページ読み込み時の処理
+    window.addEventListener('load', function() {
+        console.log('英語音声ガイドが読み込まれました');
+        console.log('音声ファイルは audio/phrase1.mp3 ～ audio/phrase6.mp3 として追加してください');
+    });
+</script>
+
 </body>
 </html>
